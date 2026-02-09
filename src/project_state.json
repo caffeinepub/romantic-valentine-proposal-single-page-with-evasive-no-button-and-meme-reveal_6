@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Interactive romantic-themed single-page Valentine proposal web page for Aqsa Kousar (runs in Chrome on iPad) with Yes/No choices, evasive No button on hover, and a meme image reveal on Yes.",
+  "architectural_notes": [
+    "Single static HTML/CSS/JS page intended to run locally in Chrome on iPad."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Romantic meme-style image with the words “Good choice” incorporated into the image (valentine-good-choice-meme.dim_1200x900.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-simple-romantic-themed-page-addressed-to-aqsa-kousar-that-asks-will-you-be-my-valentine-and-presents-exactly-two-options-yes-and-no",
+      "title": "Create a single, simple romantic-themed page addressed to “Aqsa Kousar” that asks: “Will you be my Valentine?” and presents exactly two options: “Yes” and “No”.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-evasive-no-button-that-moves-away-when-the-user-attempts-to-interact-with-it-so-it-is-effectively-not-clickable-on-both-desktop-mouse-hover-and-ipad-touch-interaction",
+      "title": "Implement an evasive “No” button that moves away when the user attempts to interact with it so it is effectively not clickable on both desktop (mouse hover) and iPad (touch interaction).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-yes-transition-the-ui-to-show-a-meme-image-that-visually-includes-the-text-good-choice-and-display-a-clear-confirmation-state-e-g-hide-the-buttons-or-disable-further-interaction",
+      "title": "When the user clicks “Yes”, transition the UI to show a meme image that visually includes the text “Good choice” and display a clear confirmation state (e.g., hide the buttons or disable further interaction).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-romantic-pink-and-white-visual-theme-across-the-page-background-typography-buttons-spacing-and-ensure-the-layout-is-responsive-and-works-well-in-chrome-on-ipad",
+      "title": "Apply a romantic pink-and-white visual theme across the page (background, typography, buttons, spacing) and ensure the layout is responsive and works well in Chrome on iPad.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-generated-meme-image-as-a-static-frontend-asset-under-frontend-public-assets-generated-and-load-it-directly-from-the-frontend-not-via-the-backend",
+      "title": "Add the generated meme image as a static frontend asset under frontend/public/assets/generated and load it directly from the frontend (not via the backend).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a simple romantic Valentine proposal web page addressed to Aqsa Kousar using HTML/CSS/JS (pink/white theme) runnable in Chrome on iPad.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Provide Yes/No buttons where the No button moves away on hover to prevent clicking, effectively forcing a Yes selection.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "On clicking Yes, display a meme image with the text \"Good choice\" (or equivalent confirmation message).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Romantic Valentine proposal single-page with evasive No button and meme reveal",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

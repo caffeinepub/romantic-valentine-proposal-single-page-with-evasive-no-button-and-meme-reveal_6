@@ -1,0 +1,14 @@
+{
+  "backend/main.mo": "Empty Motoko actor with no logic.",
+  "feature_evidence.json": "Lists implemented features, related frontend files, and component versions for the Valentine app.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing key frontend files and their purposes.",
+  "frontend/index.css": "Tailwind base and theme variables defining detailed color tokens and styles; appears unused duplicate of main theme.",
+  "frontend/index.html": "HTML entry point loading the React app with Valentine-themed title and meta description.",
+  "frontend/src/App.tsx": "React UI for Valentine prompt with Yes action showing meme and No button that evades via randomized movement.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and manages a backend actor tied to Internet Identity.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity auth context and helper methods for login, logout, and identity management.",
+  "frontend/src/index.css": "Primary Tailwind theme file defining romantic pink/white variables and animations.",
+  "frontend/src/main.tsx": "React entry point wiring QueryClient, InternetIdentityProvider, and rendering App.",
+  "frontend/tailwind.config.js": "TailwindCSS configuration enabling dark mode, custom color palette, container settings, and extended utilities including animations and keyframes.",
+  "project_state.json": "Project metadata describing a romantic single-page Valentine proposal app, its features, requirements, and current state."
+}

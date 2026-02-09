@@ -1,0 +1,102 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine single-page proposal with evasive No and meme reveal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Single romantic-themed page addressed to Aqsa Kousar with exactly two options: Yes and No",
+      "acceptanceCriteria": [
+        "The main prompt text includes “Will you be my Valentine?” in English.",
+        "The name “Aqsa Kousar” appears on the page in a romantic context (e.g., greeting/header).",
+        "Only two primary action buttons are present: “Yes” and “No”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page Valentine UI containing romantic header text for “Aqsa Kousar”, the prompt “Will you be my Valentine?”, and exactly two primary action buttons (“Yes” and “No”). Use the shadcn-ui Button component (from the existing UI library) to render consistent primary actions; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Ensure document metadata stays minimal and aligned to a single-purpose Valentine page (keep English title; no additional sections/pages introduced)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Evasive No button that moves away on hover (desktop) and touch interaction (iPad) and can never confirm No",
+      "acceptanceCriteria": [
+        "On desktop, moving the cursor over the “No” button causes it to reposition away from the pointer.",
+        "On touch devices (iPad Chrome), attempting to tap the “No” button causes it to reposition before a click/tap can be completed.",
+        "The “No” button never triggers a “No” selected state or confirmation UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement evasive behavior for the “No” button: position it within a bounded container and randomly/strategically reposition it on mouse hover and on touch/pointer-down/touch-start so it becomes effectively not clickable; do not implement any “No selected” state or confirmation UI. If using the shadcn-ui Button component for “No”, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On Yes click, transition to a confirmation state that reveals the Good choice meme image and removes/locks the choice UI",
+      "acceptanceCriteria": [
+        "Clicking “Yes” reveals the meme image.",
+        "The meme image visibly contains the words “Good choice” (as part of the image).",
+        "After “Yes” is clicked, the Yes/No choice UI is no longer actionable (buttons removed or disabled)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a “Yes selected” state that transitions the UI to show the static meme image and a clear confirmation view; hide or disable the Yes/No buttons after selection so the choice UI is no longer actionable. If using shadcn-ui components for buttons/layout elements, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Romantic pink-and-white theme with responsive layout and working interactions on iPad Chrome",
+      "acceptanceCriteria": [
+        "The primary palette is pink and white; the look and feel is clearly romantic-themed.",
+        "The page layout remains usable and visually coherent on an iPad-sized viewport in Chrome.",
+        "All interactions (evasive No, Yes reveal) work without requiring page reloads."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global styling (using existing Tailwind entrypoint conventions) for a pink-and-white romantic theme (background, typography defaults, button emphasis) while keeping the app single-page and responsive."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply responsive layout and spacing suitable for iPad Chrome (centered content, safe tap targets, bounded area for evasive No), ensuring interactions occur client-side without reloads. If leveraging shadcn-ui primitives for visual consistency, verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add generated meme image as a static asset and load it directly from the frontend on Yes",
+      "acceptanceCriteria": [
+        "The meme image file exists under frontend/public/assets/generated.",
+        "The app references the image via a static path and displays it on “Yes”.",
+        "No backend endpoints are added for image delivery."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png",
+          "operation": "create",
+          "description": "Add the generated static meme image asset at the exact required path: frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference and render the static image from frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png in the “Yes” confirmation state (frontend-only delivery; no backend involvement)."
+        }
+      ]
+    }
+  ]
+}

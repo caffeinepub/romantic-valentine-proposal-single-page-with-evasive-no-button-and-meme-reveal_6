@@ -1,0 +1,6 @@
+{
+  "frontend/src/App.tsx": "Main Valentine's Day proposal component with romantic greeting for Aqsa Kousar, Yes/No buttons where No evades on hover/touch, and meme image reveal on Yes selection.",
+  "frontend/src/index.css": "Global styles with romantic pink and white OKLCH color theme, custom animations for fade-in and floating effects.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color palette tokens for the Valentine's theme.",
+  "frontend/index.html": "HTML entry point with updated title and meta description for the Valentine's proposal page."
+}
