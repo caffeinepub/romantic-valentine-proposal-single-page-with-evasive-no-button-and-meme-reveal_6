@@ -1,100 +1,36 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine single-page proposal with evasive No and meme reveal",
+  "title": "Fix password gate password and hint text",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Single romantic-themed page addressed to Aqsa Kousar with exactly two options: Yes and No",
+      "id": "REQ-17",
+      "summary": "Change the password gate to accept exactly \"9102008\" and unlock the Valentine content when entered.",
       "acceptanceCriteria": [
-        "The main prompt text includes “Will you be my Valentine?” in English.",
-        "The name “Aqsa Kousar” appears on the page in a romantic context (e.g., greeting/header).",
-        "Only two primary action buttons are present: “Yes” and “No”."
+        "In frontend/src/App.tsx, the password check uses the exact string \"9102008\" as the correct password.",
+        "When the user enters \"9102008\" in the password screen and submits, the app unlocks and shows the main Valentine page content.",
+        "When the user enters any other password, the app remains locked and shows the existing error message."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Create the single-page Valentine UI containing romantic header text for “Aqsa Kousar”, the prompt “Will you be my Valentine?”, and exactly two primary action buttons (“Yes” and “No”). Use the shadcn-ui Button component (from the existing UI library) to render consistent primary actions; verify the component's usage instructions before implementing."
-        },
-        {
-          "path": "frontend/index.html",
           "operation": "modify",
-          "description": "Ensure document metadata stays minimal and aligned to a single-purpose Valentine page (keep English title; no additional sections/pages introduced)."
+          "description": "Update the CORRECT_PASSWORD constant so the password comparison matches exactly \"9102008\", keeping the existing sessionStorage persistence mechanism (key \"valentine_unlocked\") unchanged."
         }
       ]
     },
     {
-      "id": "REQ-2",
-      "summary": "Evasive No button that moves away on hover (desktop) and touch interaction (iPad) and can never confirm No",
+      "id": "REQ-18",
+      "summary": "Update the password screen hint line text to the requested exact wording.",
       "acceptanceCriteria": [
-        "On desktop, moving the cursor over the “No” button causes it to reposition away from the pointer.",
-        "On touch devices (iPad Chrome), attempting to tap the “No” button causes it to reposition before a click/tap can be completed.",
-        "The “No” button never triggers a “No” selected state or confirmation UI."
+        "On the password gate screen (frontend/src/components/PasswordGateView.tsx), the hint line displays exactly: \"Hint: The most happiest day for me.\"",
+        "No other user-facing text is changed as part of this update."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/components/PasswordGateView.tsx",
           "operation": "modify",
-          "description": "Implement evasive behavior for the “No” button: position it within a bounded container and randomly/strategically reposition it on mouse hover and on touch/pointer-down/touch-start so it becomes effectively not clickable; do not implement any “No selected” state or confirmation UI. If using the shadcn-ui Button component for “No”, verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "On Yes click, transition to a confirmation state that reveals the Good choice meme image and removes/locks the choice UI",
-      "acceptanceCriteria": [
-        "Clicking “Yes” reveals the meme image.",
-        "The meme image visibly contains the words “Good choice” (as part of the image).",
-        "After “Yes” is clicked, the Yes/No choice UI is no longer actionable (buttons removed or disabled)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add a “Yes selected” state that transitions the UI to show the static meme image and a clear confirmation view; hide or disable the Yes/No buttons after selection so the choice UI is no longer actionable. If using shadcn-ui components for buttons/layout elements, verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "Romantic pink-and-white theme with responsive layout and working interactions on iPad Chrome",
-      "acceptanceCriteria": [
-        "The primary palette is pink and white; the look and feel is clearly romantic-themed.",
-        "The page layout remains usable and visually coherent on an iPad-sized viewport in Chrome.",
-        "All interactions (evasive No, Yes reveal) work without requiring page reloads."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "create",
-          "description": "Define global styling (using existing Tailwind entrypoint conventions) for a pink-and-white romantic theme (background, typography defaults, button emphasis) while keeping the app single-page and responsive."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Apply responsive layout and spacing suitable for iPad Chrome (centered content, safe tap targets, bounded area for evasive No), ensuring interactions occur client-side without reloads. If leveraging shadcn-ui primitives for visual consistency, verify the component's usage instructions before implementing."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Add generated meme image as a static asset and load it directly from the frontend on Yes",
-      "acceptanceCriteria": [
-        "The meme image file exists under frontend/public/assets/generated.",
-        "The app references the image via a static path and displays it on “Yes”.",
-        "No backend endpoints are added for image delivery."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png",
-          "operation": "create",
-          "description": "Add the generated static meme image asset at the exact required path: frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Reference and render the static image from frontend/public/assets/generated/valentine-good-choice-meme.dim_1200x900.png in the “Yes” confirmation state (frontend-only delivery; no backend involvement)."
+          "description": "Replace the existing hint text line with exactly: \"Hint: The most happiest day for me.\", ensuring no other user-facing strings are modified."
         }
       ]
     }

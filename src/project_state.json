@@ -1,13 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 15,
   "summary": "Interactive romantic-themed single-page Valentine proposal web page for Aqsa Kousar (runs in Chrome on iPad) with Yes/No choices, evasive No button on hover, and a meme image reveal on Yes.",
   "architectural_notes": [
-    "Single static HTML/CSS/JS page intended to run locally in Chrome on iPad."
+    "Single static HTML/CSS/JS page intended to run locally in Chrome on iPad.",
+    "Add UI animations for buttons (CSS keyframes / JS-triggered effects) while keeping iPad Chrome performance in mind.",
+    "Support tap-to-toggle (or tap-to-advance) between two static image assets in the confirmation/photo view.",
+    "Consider adding a lightweight password prompt gate before rendering the main Valentine content (intended for iPad Chrome / static frontend).",
+    "Password gate should support setting both the correct password and a customizable hint message (static frontend)."
   ],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Romantic meme-style image with the words “Good choice” incorporated into the image (valentine-good-choice-meme.dim_1200x900.png)",
+  "known_issues": [
+    "Password gate currently rejects the intended password (mismatch between expected \"9102008\" and the value coded in the app)."
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
       "id": "feature-create-a-single-simple-romantic-themed-page-addressed-to-aqsa-kousar-that-asks-will-you-be-my-valentine-and-presents-exactly-two-options-yes-and-no",
@@ -48,6 +53,110 @@
         "REQ-5"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-add-the-user-uploaded-image-file-img-20260210-031107-923-jpg-as-a-static-frontend-asset-under-frontend-public-assets-generated-and-use-it-as-the-image-shown-in-the-yes-confirmation-state-the-screen-shown-after-clicking-yes",
+      "title": "Add the user-uploaded image file (IMG_20260210_031107_923.jpg) as a static frontend asset under frontend/public/assets/generated, and use it as the image shown in the Yes-confirmation state (the screen shown after clicking “Yes”).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-frontend-src-app-tsx-to-point-the-yes-confirmation-img-src-to-the-newly-added-static-asset-and-update-the-img-alt-text-to-describe-the-new-image-in-english",
+      "title": "Update frontend/src/App.tsx to point the Yes-confirmation <img> src to the newly added static asset and update the <img> alt text to describe the new image in English.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-newly-uploaded-image-file-img-20260210-032555-590-jpg-as-a-static-frontend-asset-under-frontend-public-assets-generated-and-reference-it-only-from-the-frontend-no-backend-involvement",
+      "title": "Add the newly uploaded image file (IMG_20260210_032555_590.jpg) as a static frontend asset under frontend/public/assets/generated, and reference it only from the frontend (no backend involvement).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-yes-confirmation-view-the-screen-shown-after-clicking-yes-make-the-displayed-photo-tappable-clickable-so-that-tapping-the-first-photo-toggles-to-the-second-photo-img-20260210-032555-590-dim-640x480-jpg-and-tapping-again-toggles-back-to-the-first-photo-the-currently-used-img-20260210-031107-923-dim-1024x1536-jpg",
+      "title": "In the Yes-confirmation view (the screen shown after clicking “Yes”), make the displayed photo tappable/clickable so that tapping the first photo toggles to the second photo (IMG_20260210_032555_590.dim_640x480.jpg), and tapping again toggles back to the first photo (the currently used IMG_20260210_031107_923.dim_1024x1536.jpg).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-both-the-yes-and-no-buttons-feel-very-animated-with-romantic-vibes-by-adding-noticeable-but-tasteful-animations-idle-interaction-states-while-preserving-the-current-behavior-yes-remains-clickable-no-remains-evasive-on-hover-touch",
+      "title": "Make both the “Yes” and “No” buttons feel “very animated” with romantic vibes by adding noticeable but tasteful animations (idle + interaction states) while preserving the current behavior (Yes remains clickable; No remains evasive on hover/touch).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-video-section-to-the-valentine-proposal-single-page-ui-so-the-user-can-play-a-romantic-video-directly-within-the-page-on-ipad-chrome",
+      "title": "Add a video section to the Valentine proposal single-page UI so the user can play a romantic video directly within the page on iPad Chrome.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-local-static-video-asset-under-frontend-public-assets-generated-and-wire-the-new-video-section-to-load-it-directly-from-the-frontend-no-backend-involvement",
+      "title": "Add a local static video asset under frontend/public/assets/generated and wire the new video section to load it directly from the frontend (no backend involvement).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-video-section-from-the-valentine-proposal-page-ui-so-no-video-player-is-rendered-and-no-video-related-user-facing-text-is-shown",
+      "title": "Remove the video section from the Valentine proposal page UI so no video player is rendered and no video-related user-facing text is shown.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-frontend-references-to-the-local-video-asset-so-the-app-no-longer-requests-or-loads-assets-generated-valentine-video-dim-1280x720-mp4",
+      "title": "Remove all frontend references to the local video asset so the app no longer requests or loads \"/assets/generated/valentine-video.dim_1280x720.mp4\".",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-password-gate-so-the-valentine-page-content-including-the-yes-no-buttons-and-the-yes-confirmation-photo-view-is-not-shown-until-the-user-enters-the-correct-password",
+      "title": "Add a simple password gate so the Valentine page content (including the Yes/No buttons and the Yes-confirmation photo view) is not shown until the user enters the correct password.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-persist-the-unlocked-state-locally-so-the-user-does-not-need-to-re-enter-the-password-on-the-next-page-refresh-during-the-same-browser-session-and-provide-a-way-to-lock-the-page-again",
+      "title": "Persist the unlocked state locally so the user does not need to re-enter the password on the next page refresh during the same browser session, and provide a way to lock the page again.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-password-gate-so-the-correct-password-is-exactly-9102008-instead-of-the-currently-coded-value-and-ensure-entering-9102008-unlocks-the-valentine-page-content",
+      "title": "Update the password gate so the correct password is exactly \"9102008\" (instead of the currently coded value), and ensure entering \"9102008\" unlocks the Valentine page content.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-password-screen-hint-text-to-exactly-hint-the-most-happiest-day-for-me",
+      "title": "Update the password screen hint text to exactly: \"Hint: The most happiest day for me.\"",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -68,6 +177,42 @@
       "summary": "On clicking Yes, display a meme image with the text \"Good choice\" (or equivalent confirmation message).",
       "reqIds": [],
       "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Replace the current displayed meme/confirmation image with a different user-provided picture (swap the static asset used on the Yes confirmation state).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add more romantic, noticeable animations to the Yes/No buttons (enhanced animated/romantic vibes on interaction).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Enable tapping the first photo to switch/transition to a second photo (image toggle on tap in the Yes/confirmation view).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Add a simple password gate so the Valentine page/link only opens after entering the correct password.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the password gate to accept the intended password \"9102008\" (currently incorrectly set to a different value).",
+      "reqIds": [],
+      "status": "in_progress"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Update the password screen hint text to: \"The most happiest day for me.\"",
+      "reqIds": [],
+      "status": "in_progress"
     }
   ],
   "projectName": "Romantic Valentine proposal single-page with evasive No button and meme reveal",

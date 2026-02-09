@@ -1,110 +1,67 @@
 {
   "kind": "build_request",
-  "title": "Romantic Valentine proposal single-page with evasive No button and meme reveal",
-  "priority": "normal",
+  "title": "Fix password gate to accept 9102008 and update password hint text",
+  "priority": "high",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a single, simple romantic-themed page addressed to “Aqsa Kousar” that asks: “Will you be my Valentine?” and presents exactly two options: “Yes” and “No”.",
+      "id": "REQ-17",
+      "text": "Update the password gate so the correct password is exactly \"9102008\" (instead of the currently coded value), and ensure entering \"9102008\" unlocks the Valentine page content.",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "Create an interactive web page as a surprise for my girlfriend aqsa kousar.\nThe page should be simple, romantic-themed, and have only one purpose: to ask her to be my Valentine\nThere should be two options: Yes or No"
+          "What was the password?",
+          "The password you set for the page is 9102008.",
+          "It's showing me that it's incorrect"
         ]
       },
       "acceptanceCriteria": [
-        "The main prompt text includes “Will you be my Valentine?” in English.",
-        "The name “Aqsa Kousar” appears on the page in a romantic context (e.g., greeting/header).",
-        "Only two primary action buttons are present: “Yes” and “No”."
+        "In frontend/src/App.tsx, the password check uses the exact string \"9102008\" as the correct password.",
+        "When the user enters \"9102008\" in the password screen and submits, the app unlocks and shows the main Valentine page content.",
+        "When the user enters any other password, the app remains locked and shows the existing error message."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement an evasive “No” button that moves away when the user attempts to interact with it so it is effectively not clickable on both desktop (mouse hover) and iPad (touch interaction).",
+      "id": "REQ-18",
+      "text": "Update the password screen hint text to exactly: \"Hint: The most happiest day for me.\"",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-1"
         ],
         "quotes": [
-          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+          "Yeas and also in the Hint you should write The most happiest day for me."
         ]
       },
       "acceptanceCriteria": [
-        "On desktop, moving the cursor over the “No” button causes it to reposition away from the pointer.",
-        "On touch devices (iPad Chrome), attempting to tap the “No” button causes it to reposition before a click/tap can be completed.",
-        "The “No” button never triggers a “No” selected state or confirmation UI."
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "When the user clicks “Yes”, transition the UI to show a meme image that visually includes the text “Good choice” and display a clear confirmation state (e.g., hide the buttons or disable further interaction).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "When she clicks Yes, show her a meme image telling her \"Good choice"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Clicking “Yes” reveals the meme image.",
-        "The meme image visibly contains the words “Good choice” (as part of the image).",
-        "After “Yes” is clicked, the Yes/No choice UI is no longer actionable (buttons removed or disabled)."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Apply a romantic pink-and-white visual theme across the page (background, typography, buttons, spacing) and ensure the layout is responsive and works well in Chrome on iPad.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "The page should be themed romantically with a pink and white color scheme and be fully interactive ... so that I can easily run it on my iPad using Chrome."
-        ]
-      },
-      "acceptanceCriteria": [
-        "The primary palette is pink and white; the look and feel is clearly romantic-themed.",
-        "The page layout remains usable and visually coherent on an iPad-sized viewport in Chrome.",
-        "All interactions (evasive No, Yes reveal) work without requiring page reloads."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Add the generated meme image as a static frontend asset under frontend/public/assets/generated and load it directly from the frontend (not via the backend).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The meme image file exists under frontend/public/assets/generated.",
-        "The app references the image via a static path and displays it on “Yes”.",
-        "No backend endpoints are added for image delivery."
+        "On the password gate screen (frontend/src/components/PasswordGateView.tsx), the hint line displays exactly: \"Hint: The most happiest day for me.\"",
+        "No other user-facing text is changed as part of this update."
       ]
     }
   ],
   "constraints": [
-    "Use English for all user-facing text.",
-    "Do not modify files under frontend/src/components/ui or other immutable frontend paths specified by the platform.",
-    "Keep the experience single-page and focused only on the Valentine question flow (no extra app sections)."
+    "Do not modify any files under frontend/src/components/ui (read-only).",
+    "Do not change the existing unlock persistence mechanism (sessionStorage key valentine_unlocked) other than what is required to update the password and hint text.",
+    "No backend changes (Motoko) are required for this request."
   ],
   "nonGoals": [
-    "Internet Identity authentication.",
-    "Backend canister features or persistent storage.",
-    "Sharing, social integrations, messaging, email, or notifications."
+    "Do not add new authentication methods (e.g., Internet Identity) for this password gate.",
+    "Do not redesign the Valentine page layout, animations, or images beyond the specified text/password changes."
   ],
   "imageRequirements": {
-    "required": [
-      "Romantic meme-style image with the words “Good choice” incorporated into the image (valentine-good-choice-meme.dim_1200x900.png)"
-    ],
+    "required": [],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

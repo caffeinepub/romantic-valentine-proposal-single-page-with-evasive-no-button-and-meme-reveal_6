@@ -1,13 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Create a single-page, romantic Valentine prompt for “Aqsa Kousar” with an evasive “No” button and a “Yes” confirmation that reveals a “Good choice” meme image.
+**Goal:** Fix the Valentine page password gate to unlock with the correct password and update the on-screen hint text.
 
 **Planned changes:**
-- Build a simple, responsive single-page layout with a pink-and-white romantic theme that displays “Aqsa Kousar” and the text “Will you be my Valentine?”.
-- Add exactly two primary buttons: “Yes” and “No”.
-- Implement an evasive “No” button that repositions away on desktop hover and on touch interaction (iPad) so it cannot be clicked.
-- On “Yes” click, transition to a confirmation state that reveals a meme image (with “Good choice” visible in the image) and removes/disables further interaction with the Yes/No UI.
-- Add the meme image as a static asset under `frontend/public/assets/generated` and load it directly from the frontend via a static path.
+- Update the password check in `frontend/src/App.tsx` so the only correct password is the exact string `"9102008"` and entering it unlocks the Valentine page content.
+- Update the password hint line in `frontend/src/components/PasswordGateView.tsx` to exactly: `"Hint: The most happiest day for me."`
 
-**User-visible outcome:** On iPad Chrome (and desktop), the user sees a romantic Valentine question for Aqsa Kousar, cannot click “No” because it moves away, and clicking “Yes” shows a “Good choice” meme image with the choice UI no longer actionable.
+**User-visible outcome:** Entering `9102008` unlocks and shows the Valentine page; any other password keeps the page locked with the existing error message, and the hint text reads exactly as specified.

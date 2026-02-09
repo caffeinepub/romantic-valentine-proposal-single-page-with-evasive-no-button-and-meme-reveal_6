@@ -1,6 +1,7 @@
 {
-  "frontend/src/App.tsx": "Main Valentine's Day proposal component with romantic greeting for Aqsa Kousar, Yes/No buttons where No evades on hover/touch, and meme image reveal on Yes selection.",
-  "frontend/src/index.css": "Global styles with romantic pink and white OKLCH color theme, custom animations for fade-in and floating effects.",
+  "frontend/src/App.tsx": "Main Valentine's Day proposal component with client-side password gate (password: \"9102008\"), session persistence, lock action, and all original Valentine interactions (Yes/No buttons, photo toggle) preserved behind the unlock state.",
+  "frontend/src/index.css": "Global styles with romantic pink and white OKLCH color theme, custom animations for fade-in, floating effects, romantic heartbeat/glow for Yes button, and playful wiggle for No button.",
   "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color palette tokens for the Valentine's theme.",
-  "frontend/index.html": "HTML entry point with updated title and meta description for the Valentine's proposal page."
+  "frontend/index.html": "HTML entry point with updated title and meta description for the Valentine's proposal page.",
+  "frontend/src/components/PasswordGateView.tsx": "Password entry component with input field, unlock button, error messaging, romantic styling, and hint text \"The most happiest day for me.\""
 }

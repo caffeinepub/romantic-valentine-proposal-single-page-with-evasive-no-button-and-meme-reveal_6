@@ -1,14 +1,15 @@
 {
-  "backend/main.mo": "Empty Motoko actor with no logic.",
-  "feature_evidence.json": "Lists implemented features, related frontend files, and component versions for the Valentine app.",
-  "frontend-file-summaries.txt": "Prewritten summaries describing key frontend files and their purposes.",
-  "frontend/index.css": "Tailwind base and theme variables defining detailed color tokens and styles; appears unused duplicate of main theme.",
-  "frontend/index.html": "HTML entry point loading the React app with Valentine-themed title and meta description.",
-  "frontend/src/App.tsx": "React UI for Valentine prompt with Yes action showing meme and No button that evades via randomized movement.",
-  "frontend/src/hooks/useActor.ts": "React hook that creates and manages a backend actor tied to Internet Identity.",
-  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity auth context and helper methods for login, logout, and identity management.",
-  "frontend/src/index.css": "Primary Tailwind theme file defining romantic pink/white variables and animations.",
-  "frontend/src/main.tsx": "React entry point wiring QueryClient, InternetIdentityProvider, and rendering App.",
-  "frontend/tailwind.config.js": "TailwindCSS configuration enabling dark mode, custom color palette, container settings, and extended utilities including animations and keyframes.",
-  "project_state.json": "Project metadata describing a romantic single-page Valentine proposal app, its features, requirements, and current state."
+  "backend/main.mo": "Empty Motoko actor with no implemented methods.",
+  "feature_evidence.json": "Feature evidence report describing password update and hint text changes tied to specific frontend files.",
+  "frontend-file-summaries.txt": "Prewritten summaries mapping various frontend files to their roles in the Valentine app.",
+  "frontend/index.css": "Tailwind base theme with OKLCH color variables and dark‑mode overrides for global styling.",
+  "frontend/index.html": "HTML entry point mounting the React app with Valentine‑themed title and metadata.",
+  "frontend/src/App.tsx": "Main app component handling password gating, Valentine interactions, state management, and session persistence.",
+  "frontend/src/components/PasswordGateView.tsx": "Password entry UI with unlock flow, error handling, loading state, and fixed hint text.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and refreshing an authenticated or anonymous backend actor using React Query.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Internet Identity authentication context and provider managing login, identity loading, and state.",
+  "frontend/src/index.css": "Romantic‑themed Tailwind variables and animations defining the app’s global visual style.",
+  "frontend/src/main.tsx": "Application entry that sets up React Query, Internet Identity provider, and renders the App component.",
+  "frontend/tailwind.config.js": "Tailwind configuration defining dark mode, content paths, container settings, extended color palette, radii, shadows, and custom keyframes with plugin imports.",
+  "project_state.json": "JSON state file describing the project’s purpose, architecture notes, known issues, and implemented feature metadata for the Valentine proposal app."
 }
